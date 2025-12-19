@@ -1,0 +1,82 @@
+html {
+  font-size: 10px;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+.drumkeys {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1rem 2rem;
+}
+
+.drumkeys .key {
+  align-items: center;
+  border: 3px solid grey;
+  display:flex;
+  flex-direction: column;
+  font-size: 2rem;
+  justify-content: center;
+
+}
+
+/* temp styling. remove later. just for transition  */
+
+.drumkeys .key {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  transition: all .09s ease;
+  border: .3rem solid darkorange;/* change later. drums and cymbals will look diff*/
+  background: antiquewhite; 
+}
+
+/* this will dep on instrument after logic works  */
+.key.hit {
+  transform: scale(1.2);
+  border-color: orangered;
+}
+
+
+/* STYLE NOTES  
+drum hit will and look hit (skin ? stick?)
+cymbal like ones will shake
+
+
+after logic, make the percussion via css
+will have pos abs, so don't create margins on actual drums and cymbs
+
+arc like a drum kit 
+
+      O   O
+    O       O
+  O    ( )    0 ... ish
+
+drummy
+kick drum (big at bottom)
+boom (like billie eilish beginning)
+snare (tom with resonance spring)
+toms
+
+clangy / cymbas
+hats 
+rides
+clap (clap stack) looks like a stack of pancakes
+
+gen percush
+tink
+
+
+*/
