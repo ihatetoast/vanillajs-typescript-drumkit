@@ -1,82 +1,148 @@
-html {
-  font-size: 10px;
-}
+/* color and style influenced by https://dribbble.com/shots/2345757-Da-Dum-Dum-Drums  */
 
-body,html {
-  margin: 0;
-  padding: 0;
+:root {
+  --cymbal: #ee3f4a;
+  --drum-head: #f1efdf;
+  --drum-head-hit:  radial-gradient(at center, #EEF1D5, #7D7F6B);
+  --black: #000104; /* counter top stands sticks lug casing ... and text */
+  --drum-shell: #f7a828;
+  --stage-width: 316px;
 }
 
 * {
   box-sizing: border-box;
 }
 
-ul {
-  list-style: none;
+html {
+  font-size: 10px;
+  color: var(--black);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
-.drumkeys {
-  display: flex;
-  justify-content: space-between;
+body,html {
+  margin: 0;
+  padding: 0;
 
-  padding: 1rem 2rem;
+}
+
+h1 {
+  font-family: "Truculenta", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 3rem;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  text-align: center;
+}
+
+
+.drumkeys {
+  display: block;
+  height: 40rem;
+  margin: 0 auto;
+  position: relative;
+  width: var(--stage-width);
+
+  /* remove later  */
+  background: rgb(159, 158, 158);
+
 }
 
 .drumkeys .key {
   align-items: center;
-  border: 3px solid grey;
   display:flex;
   flex-direction: column;
   font-size: 2rem;
   justify-content: center;
-
+  position: absolute;
 }
 
-/* temp styling. remove later. just for transition  */
 
-.drumkeys .key {
-  width: 9rem;
-  height: 9rem;
+
+/* temp styling. remove later. just for transition  */
+.testing-remove-later {
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   transition: all .09s ease;
   border: .3rem solid darkorange;/* change later. drums and cymbals will look diff*/
   background: antiquewhite; 
 }
-
-/* this will dep on instrument after logic works  */
-.key.hit {
-  transform: scale(1.2);
-  border-color: orangered;
+/* CHANGE PER INSTRUMENT */
+.testing-remove-later.hit {
+  /* transform: scale(1.2); */
+  /* border-color: orangered; */
 }
 
 
-/* STYLE NOTES  
-drum hit will and look hit (skin ? stick?)
-cymbal like ones will shake
+/* APPLIED TO ALL KEYS / DRUMS AND CYMBALS  */
 
 
-after logic, make the percussion via css
-will have pos abs, so don't create margins on actual drums and cymbs
+/* DRUMSY THINGS:  */
+.kick, .snare, .tom {
+  border: 5px solid var(--black);
+  background-color: var(--drum-head);
+}
 
-arc like a drum kit 
+/* KICK CENTER. BIGGEST  */
+.key.kick {
+  width: 18rem;
+  height: 18rem;
+  top: 50%;
+  left: calc((var(--stage-width) - 18rem) / 2);
+  transition: all .09s ease;
+}
 
-      O   O
-    O       O
-  O    ( )    0 ... ish
+.kick.hit {
+  background: var(--drum-head);
+  background: var(--drum-head-hit);
+  box-shadow: 0px -6px 10px 0px var(--black);
+}
 
-drummy
-kick drum (big at bottom)
-boom (like billie eilish beginning)
-snare (tom with resonance spring)
-toms
+.kick .kick-extra {
+  position: absolute;
+  height: 20px;
+  top: 155px;
+  left: 22px;
+  transform: rotate(45deg);
+  width: 10px;
+  background: var(--black);
+}
 
-clangy / cymbas
-hats 
-rides
-clap (clap stack) looks like a stack of pancakes
+.kick .kick-extra::after {
+  content: '';
+  position: absolute;
+  height: 20px;
+  top: -80px;
+  left: 81px;
+  transform: rotate(-90deg);
+  width: 10px;
+  background: var(--black);
+}
 
-gen percush
-tink
 
 
-*/
+
+.mallets {
+  display: none;
+}
+
+
+@media screen and (min-width: 600px) {
+  .mallets {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  :root {
+    --stage-width: 745px;
+  }
+
+}
+
+@media screen and (min-width: 1100px) {
+
+}
+

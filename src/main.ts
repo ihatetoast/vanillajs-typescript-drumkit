@@ -1,6 +1,6 @@
 import './style.css'
 
-import { setUpKeys, setUpAudio, handleOnKeyDown, handleRemoveTransition } from './helperFunctions.ts'
+import { setUpKeys, setUpAudio, handleOnKeyDown, handleRemoveTransition, handleOnClick } from './helperFunctions.ts'
 import {keydata} from './keydata'
 
 
@@ -8,7 +8,7 @@ const drumKeys = setUpKeys(keydata);
 const keyListFragment = document.createDocumentFragment();
 drumKeys.forEach(key => keyListFragment.append(key))
 
-document.querySelector<HTMLUListElement>('#drumkeys')!.append(keyListFragment);
+document.querySelector<HTMLDivElement>('#drumkeys')!.append(keyListFragment);
 
 const audioEls = setUpAudio(keydata);
 const audioListFragment = document.createDocumentFragment();
@@ -22,3 +22,4 @@ window.addEventListener("keydown", handleOnKeyDown);
 const keys: NodeListOf<HTMLElement> = document.querySelectorAll(".key");
 
 keys.forEach(key => key.addEventListener('transitionend', handleRemoveTransition));
+keys.forEach(key => key.addEventListener('click', handleOnClick));
